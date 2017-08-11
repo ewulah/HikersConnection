@@ -29,7 +29,7 @@ namespace HikersConnection.Controllers
         [Authorize]
         public ActionResult MyScheduledHikes()
         {
-            var userId = User.Identity.GetUserId().ToString();
+            var userId = User.Identity.GetUserId();
             var hikes = db.Hikes.Where (d => d.OrganizerId = userId)
                 .Include(u => u.OrganizerId)
                 .Include(h => h.Trail);
